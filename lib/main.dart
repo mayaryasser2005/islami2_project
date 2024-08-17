@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islami2_project/screens/ahadethdetails/ahadethdetails.dart';
 import 'package:islami2_project/screens/home/home.dart';
+import 'package:islami2_project/screens/home/tabs/setting/setting.dart';
 import 'package:islami2_project/screens/splash/splash.dart';
 import 'package:islami2_project/screens/suradetails/suradetails.dart';
 
@@ -15,11 +17,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [Locale("ar"), Locale("en")],
+      locale: Locale("ar"),
       routes: {
         Splash.routeNamed: (_) => const Splash(),
         Home.routeNamed: (_) => const Home(),
         SuraDetails.routeNamed: (_) => SuraDetails(),
-        AhadethDetails.routeNamed: (_) => AhadethDetails()
+        AhadethDetails.routeNamed: (_) => AhadethDetails(),
+        Setting.routeNamed: (_) => Setting()
       },
       initialRoute: Splash.routeNamed,
     );

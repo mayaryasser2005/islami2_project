@@ -18,7 +18,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int sellectedTabIndex = 2;
+  int sellectedTabIndex = 4;
   List<Widget> tabs = [MyRadio(), Sebha(), Ahadeth(), Quran(), Setting()];
   @override
   Widget build(BuildContext context) {
