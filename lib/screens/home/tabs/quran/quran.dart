@@ -1,11 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:islami2_project/model/sura_details_arguments.dart';
-import 'package:islami2_project/screens/suradetails/suradetails.dart';
-import 'package:islami2_project/utils/constants.dart';
 
+import '../../../../model/sura_details_arguments.dart';
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/app_style.dart';
+import '../../../../utils/constants.dart';
+import '../../../suradetails/suradetails.dart';
 
 class Quran extends StatelessWidget {
   const Quran({super.key});
@@ -22,18 +23,18 @@ class Quran extends StatelessWidget {
             Column(
               children: [
                 buildDivider(),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      "Name",
+                      "suraName".tr(),
                       style: AppStyle.titlestextstyle,
                     ),
                     SizedBox(
                       width: 15,
                     ),
                     Text(
-                      "veres",
+                      "veres".tr(),
                       style: AppStyle.titlestextstyle,
                     )
                   ],
@@ -42,7 +43,7 @@ class Quran extends StatelessWidget {
                 buildSuraList(),
               ],
             ),
-            VerticalDivider(
+            const VerticalDivider(
               width: 2,
               color: AppColors.primary,
               thickness: 3,

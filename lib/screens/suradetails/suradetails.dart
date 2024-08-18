@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami2_project/model/sura_details_arguments.dart';
-import 'package:islami2_project/utils/app_colors.dart';
-import 'package:islami2_project/utils/app_style.dart';
-import 'package:islami2_project/widgets/app_scaffoled.dart';
+
+import '../../model/sura_details_arguments.dart';
+import '../../utils/app_colors.dart';
+import '../../utils/app_style.dart';
+import '../../widgets/app_scaffoled.dart';
 
 class SuraDetails extends StatefulWidget {
   static const String routeNamed = "SuraDetails";

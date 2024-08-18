@@ -1,13 +1,14 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:islami2_project/screens/home/tabs/ahadeth/ahadeth.dart';
-import 'package:islami2_project/screens/home/tabs/quran/quran.dart';
-import 'package:islami2_project/screens/home/tabs/radio/MyRadio.dart';
-import 'package:islami2_project/screens/home/tabs/sebha/sebha.dart';
-import 'package:islami2_project/screens/home/tabs/setting/setting.dart';
-import 'package:islami2_project/widgets/app_scaffoled.dart';
+import 'package:flutter_mayar/screens/home/tabs/ahadeth/ahadeth.dart';
+import 'package:flutter_mayar/screens/home/tabs/quran/quran.dart';
+import 'package:flutter_mayar/screens/home/tabs/radio/MyRadio.dart';
+import 'package:flutter_mayar/screens/home/tabs/sebha/sebha.dart';
+import 'package:flutter_mayar/screens/home/tabs/setting/setting.dart';
 
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
+import '../../widgets/app_scaffoled.dart';
 
 class Home extends StatefulWidget {
   static const String routeNamed = "Home";
@@ -23,7 +24,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return AppScaffoled(
-      appBarTitle: "islami",
+      appBarTitle: 'Islami'.tr(),
       body: tabs[sellectedTabIndex],
       bottomNavigationBar: Theme(
         data: ThemeData(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:islami2_project/model/hadeth.dart';
-import 'package:islami2_project/utils/app_style.dart';
-import 'package:islami2_project/widgets/app_scaffoled.dart';
+
+import '../../model/hadeth.dart';
+import '../../utils/app_style.dart';
+import '../../widgets/app_scaffoled.dart';
 
 class AhadethDetails extends StatefulWidget {
   static const String routeNamed = "AhadethDetails";

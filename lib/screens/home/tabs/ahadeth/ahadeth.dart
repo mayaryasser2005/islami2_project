@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami2_project/utils/constants.dart';
 
 import '../../../../model/hadeth.dart';
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/app_style.dart';
+import '../../../../utils/constants.dart';
 import '../../../ahadethdetails/ahadethdetails.dart';
 
 class Ahadeth extends StatefulWidget {

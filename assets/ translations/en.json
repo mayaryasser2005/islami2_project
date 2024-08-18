@@ -1,7 +1,9 @@
 {
   "islami": "Islami",
   "language": "Language",
+  "Hadiths": "Hadiths",
   "theme": "Theme",
+  "verses": "Verses",
   "setting": "Setting",
   "errorMessage": "Something went wrong, please try again later "
 }

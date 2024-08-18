@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami2_project/screens/home/home.dart';
+
+import '../home/home.dart';
 
 class Splash extends StatefulWidget {
   static const String routeNamed = "Splash";

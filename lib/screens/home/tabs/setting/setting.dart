@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:islami2_project/utils/app_colors.dart';
-import 'package:islami2_project/utils/app_style.dart';
+
+import '../../../../utils/app_colors.dart';
+import '../../../../utils/app_style.dart';
 
 class Setting extends StatefulWidget {
   static const String routeNamed = "Setting";
@@ -24,7 +26,7 @@ class _SettingState extends State<Setting> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            "Language",
+            "Language".tr(),
             style: AppStyle.titlestextstyle,
           ),
           SizedBox(
@@ -37,7 +39,7 @@ class _SettingState extends State<Setting> {
           Row(
             children: [
               Text(
-                "Theme",
+                "Theme".tr(),
                 style: AppStyle.titlestextstyle,
               ),
               Spacer(),
