@@ -11,6 +11,7 @@ import '../../../../utils/constants.dart';
 import '../../../ahadethdetails/ahadethdetails.dart';
 
 class Ahadeth extends StatefulWidget {
+  static const String routeNamed = "Ahadeth";
   Ahadeth({super.key});
 
   @override
@@ -60,7 +61,7 @@ class _AhadethState extends State<Ahadeth> {
   Future readahadethfile() async {
     String ahadethFileContant =
         await rootBundle.loadString(Constants.hadethFilePath);
-    List<String> ahadethAsString = ahadethFileContant.split("#\r\n");
+    List<String> ahadethAsString = ahadethFileContant.split("#\n");
     for (int i = 0; i < ahadethAsString.length; i++) {
       String hadeth = ahadethAsString[i];
       List<String> hadethLines = hadeth.split("\n");
