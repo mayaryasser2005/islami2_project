@@ -1,6 +1,6 @@
-class Hadeth {
+class HadethModel {
   String title;
-  String contant;
+  List<String> content;
 
-  Hadeth(this.title, this.contant);
+  HadethModel(this.title, this.content);
 }

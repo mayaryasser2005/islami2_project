@@ -4,7 +4,6 @@ import 'package:flutter_mayar/screens/home/tabs/ahadeth/ahadeth.dart';
 import 'package:flutter_mayar/screens/home/tabs/quran/quran.dart';
 import 'package:flutter_mayar/screens/home/tabs/radio/MyRadio.dart';
 import 'package:flutter_mayar/screens/home/tabs/sebha/sebha.dart';
-import 'package:flutter_mayar/screens/home/tabs/setting/setting.dart';
 
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
@@ -19,8 +18,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int sellectedTabIndex = 4;
-  List<Widget> tabs = [MyRadio(), Sebha(), Ahadeth(), Quran(), Setting()];
+  int sellectedTabIndex = 3;
+  List<Widget> tabs = [
+    MyRadio(),
+    Sebha(),
+    Ahadeth(),
+    Quran(),
+  ];
   @override
   Widget build(BuildContext context) {
     return AppScaffoled(
@@ -48,8 +52,6 @@ class _HomeState extends State<Home> {
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage(AppAssets.icMoshaf)),
                 label: "quran"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: "setting"),
           ],
         ),
       ),

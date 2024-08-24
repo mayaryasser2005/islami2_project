@@ -1,112 +1,86 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_mayar/utils/app_colors.dart';
+import 'package:flutter_mayar/utils/app_style.dart';
 
 import '../../../../model/hadeth.dart';
 import '../../../../utils/app_assets.dart';
-import '../../../../utils/app_colors.dart';
-import '../../../../utils/app_style.dart';
 import '../../../../utils/constants.dart';
 import '../../../ahadethdetails/ahadethdetails.dart';
 
 class Ahadeth extends StatefulWidget {
-  static const String routeNamed = "Ahadeth";
-  Ahadeth({super.key});
+  static const String routeNamed = "ahadeth";
+
+  const Ahadeth({super.key});
 
   @override
   State<Ahadeth> createState() => _AhadethState();
 }
 
 class _AhadethState extends State<Ahadeth> {
-  List<Hadeth> hadethList = [];
+  List<HadethModel> allahaddeth = [];
 
   @override
   void initState() {
     super.initState();
-    readahadethfile();
+    loadingHadethFile();
   }
-
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        Container(
+          child: Image.asset(AppAssets.AhadathTabLogo),
+          height: 219,
+        ),
+        const Divider(
+          thickness: 2,
+          color: AppColors.primary,
+        ),
+        Text(
+          "Ahadeth",
+          textAlign: TextAlign.center,
+          style: AppStyle.appBartextstyle,
+        ),
+        const Divider(
+          thickness: 2,
+          color: AppColors.primary,
+        ),
         Expanded(
-            flex: 30,
-            child: Center(child: Image.asset(AppAssets.AhadathTabLogo))),
-        Expanded(
-          flex: 70,
-          child: Column(
-            children: [
-              builddivider(),
-              const Text(
-                "Hadiths",
-                textAlign: TextAlign.center,
-                style: AppStyle.titlestextstyle,
-              ),
-              builddivider(),
-              buildahadethlist(),
-            ],
-          ),
+          child: ListView.builder(
+              itemCount: allahaddeth.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, AhadethDetails.routeNamed,
+                        arguments: allahaddeth[index]);
+                  },
+                  child: Text(
+                    allahaddeth[index].title,
+                    style: AppStyle.titlestextstyle.copyWith(fontSize: 20),
+                    textAlign: TextAlign.center,
+                  ),
+                );
+              }),
         )
       ],
     );
   }
 
-  //-------------------Important-----------------//
-
-  // Note: Study it is important
-
-  Future readahadethfile() async {
-    String ahadethFileContant =
-        await rootBundle.loadString(Constants.hadethFilePath);
-    List<String> ahadethAsString = ahadethFileContant.split("#\n");
-    for (int i = 0; i < ahadethAsString.length; i++) {
-      String hadeth = ahadethAsString[i];
-      List<String> hadethLines = hadeth.split("\n");
-      String hadethName = hadethLines[0];
-      hadethLines.removeAt(0);
-      String hadethContant = hadethLines.join();
-      hadethList.add(Hadeth(hadethName, hadethContant));
-    }
-    setState(() {});
+  loadingHadethFile() {
+    rootBundle.loadString(Constants.hadethFilePath).then((value) {
+      List<String> ahadeth = value.split("#");
+      for (int i = 0; i < ahadeth.length; i++) {
+        String hadeth = ahadeth[i];
+        List<String> HadethLines = hadeth.trim().split("\n");
+        String title = HadethLines[0];
+        HadethLines.removeAt(0);
+        List<String> content = HadethLines;
+        HadethModel hadethModel = HadethModel(title, content);
+        allahaddeth.add(hadethModel);
+        setState(() {});
+      }
+    });
   }
-
-  //-------------------Important-----------------//
-
-  Expanded buildahadethlist() => Expanded(
-        flex: 70,
-        child: hadethList.isEmpty
-            ? const Center(
-                child: CircularProgressIndicator(
-                color: AppColors.primary,
-              ))
-            : ListView.builder(
-                itemCount: hadethList.length,
-                itemBuilder: (context, index) => InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, AhadethDetails.routeNamed,
-                            arguments: hadethList[index]);
-                      },
-                      child: Row(
-                        children: [
-                          Expanded // اسماء الاحاديث
-                              (
-                                  flex: 50,
-                                  child: Text(
-                                    hadethList[index].title,
-                                    textAlign: TextAlign.center,
-                                    style: AppStyle.titlestextstyle,
-                                  )),
-                        ],
-                      ),
-                    )),
-      );
-
-  Divider builddivider() => const Divider(
-        color: AppColors.primary,
-        thickness: 3,
-        indent: 10,
-      );
 }

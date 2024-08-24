@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart'; // تأكد من استيراد هذا لتحصل على ThemeData و AppBarTheme
 
-
 import 'app_colors.dart';
 
 abstract class AppStyle {
@@ -16,6 +15,7 @@ abstract class AppStyle {
     fontWeight: FontWeight.w600,
   );
 
+  ///Ligth
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.transparent,
     primaryColor: AppColors.primary,
@@ -32,6 +32,7 @@ abstract class AppStyle {
     ),
   );
 
+  ///Dark
   static ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.transparent,
     primaryColor: AppColors.primaryDark,

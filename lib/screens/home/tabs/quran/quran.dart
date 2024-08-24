@@ -34,7 +34,7 @@ class Quran extends StatelessWidget {
                       width: 15,
                     ),
                     Text(
-                      "veres".tr(),
+                      "verses".tr(),
                       style: AppStyle.titlestextstyle,
                     )
                   ],
