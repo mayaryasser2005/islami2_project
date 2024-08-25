@@ -6,8 +6,6 @@ import '../../model/sura_details_arguments.dart';
 import '../../provider/myprovider.dart';
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
-import '../../utils/app_style.dart';
-import '../../widgets/app_scaffoled.dart';
 
 class SuraDetails extends StatefulWidget {
   static const String routeNamed = "SuraDetails";
@@ -34,10 +32,20 @@ class _SuraDetailsState extends State<SuraDetails> {
       Image.asset(pro.appTheme == ThemeMode.dark
           ? AppAssets.backgroundDark
           : AppAssets.mainBackgraond),
-      AppScaffoled(
-        appBarTitle: args.suraname,
-      body: fileContent.isEmpty ? buildLoading() : buildSuraContent(),
-      ),
+      Scaffold(
+        appBar: AppBar(
+          title: Text(
+            args.suraname,
+            style:
+                Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 25),
+          ),
+        ),
+        body: fileContent.isEmpty ? buildLoading() : buildSuraContent(),
+      )
+      // AppScaffoled(
+      //   appBarTitle: args.suraname,
+      // body: fileContent.isEmpty ? buildLoading() : buildSuraContent(),
+      // ),
     ]);
   }
 
@@ -67,7 +75,10 @@ class _SuraDetailsState extends State<SuraDetails> {
               fileContent,
               textAlign: TextAlign.center,
               textDirection: TextDirection.rtl,
-              style: AppStyle.titlestextstyle.copyWith(fontSize: 20),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge
+                  ?.copyWith(fontSize: 25, color: AppColors.accentDark),
             ),
           ),
         ),

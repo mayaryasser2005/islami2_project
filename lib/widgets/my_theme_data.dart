@@ -5,6 +5,7 @@ import '../utils/app_style.dart';
 
 class MyThemeData {
   static ThemeData ligthTheme = ThemeData(
+    canvasColor: AppColors.primary,
     scaffoldBackgroundColor: Colors.transparent,
     appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
@@ -57,6 +58,7 @@ class MyThemeData {
 
   ///Dark
   static ThemeData darkTheme = ThemeData(
+    canvasColor: AppColors.primaryDark,
     scaffoldBackgroundColor: Colors.transparent,
     appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,

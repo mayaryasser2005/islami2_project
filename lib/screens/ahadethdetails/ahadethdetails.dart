@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mayar/utils/app_assets.dart';
+import 'package:flutter_mayar/utils/app_colors.dart';
+import 'package:provider/provider.dart';
 
 import '../../model/hadeth.dart';
-import '../../utils/app_style.dart';
+import '../../provider/myprovider.dart';
 
 class AhadethDetails extends StatefulWidget {
   static const String routeNamed = "AhadethDetails";
@@ -16,19 +18,21 @@ class AhadethDetails extends StatefulWidget {
 class _AhadethDetailsState extends State<AhadethDetails> {
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<MyProvider>(context);
     var model = ModalRoute.of(context)!.settings.arguments as HadethModel;
-    return Container(
-      decoration: BoxDecoration(
-          image: DecorationImage(
-        image: AssetImage(AppAssets.mainBackgraond),
-      )),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
+    return Stack(
+      children: [
+        Image.asset(pro.appTheme == ThemeMode.dark
+            ? AppAssets.backgroundDark
+            : AppAssets.mainBackgraond),
+        Scaffold(
+          backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: Text(
             model.title,
-            style: AppStyle.titlestextstyle.copyWith(fontSize: 25),
-          ),
+              style:
+                  Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 25),
+            ),
           backgroundColor: Colors.transparent,
         ),
         body: Padding(
@@ -43,12 +47,13 @@ class _AhadethDetailsState extends State<AhadethDetails> {
                     style: Theme.of(context)
                         .textTheme
                         .bodyLarge
-                        ?.copyWith(fontSize: 25),
-                  );
+                          ?.copyWith(fontSize: 25, color: AppColors.accentDark),
+                    );
                 }),
           ),
         ),
-      ),
+        )
+      ],
     );
   }
 }
