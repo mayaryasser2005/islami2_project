@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mayar/screens/home/tabs/ahadeth/ahadeth.dart';
 import 'package:flutter_mayar/utils/app_assets.dart';
 
 import '../../model/hadeth.dart';
 import '../../utils/app_style.dart';
-import '../../widgets/app_scaffoled.dart';
 
 class AhadethDetails extends StatefulWidget {
   static const String routeNamed = "AhadethDetails";
@@ -42,7 +40,10 @@ class _AhadethDetailsState extends State<AhadethDetails> {
                   return Text(
                     model.content[index],
                     textDirection: TextDirection.rtl,
-                    style: AppStyle.titlestextstyle.copyWith(fontSize: 25),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge
+                        ?.copyWith(fontSize: 25),
                   );
                 }),
           ),

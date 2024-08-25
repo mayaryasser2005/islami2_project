@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 import '../../model/sura_details_arguments.dart';
+import '../../provider/myprovider.dart';
+import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_style.dart';
 import '../../widgets/app_scaffoled.dart';
@@ -22,14 +25,20 @@ class _SuraDetailsState extends State<SuraDetails> {
 
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<MyProvider>(context);
     args = ModalRoute.of(context)!.settings.arguments as SuraDetailsArgs;
     if (fileContent.isEmpty) {
       readfile();
     }
-    return AppScaffoled(
-      appBarTitle: args.suraname,
+    return Stack(children: [
+      Image.asset(pro.appTheme == ThemeMode.dark
+          ? AppAssets.backgroundDark
+          : AppAssets.mainBackgraond),
+      AppScaffoled(
+        appBarTitle: args.suraname,
       body: fileContent.isEmpty ? buildLoading() : buildSuraContent(),
-    );
+      ),
+    ]);
   }
 
   Future<void> readfile() async {

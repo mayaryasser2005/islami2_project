@@ -1,8 +1,13 @@
 {
   "islami": "Islami",
+  "suraName": "suraName",
   "language": "Language",
+  "arabic": "Arabic",
+  "english": "English",
   "Hadiths": "Hadiths",
   "theme": "Theme",
+  "light": "light",
+  "dark": "Dark",
   "verses": "Verses",
   "setting": "Setting",
   "errorMessage": "Something went wrong, please try again later "

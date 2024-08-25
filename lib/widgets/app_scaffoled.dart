@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../utils/app_assets.dart';
 import '../utils/app_style.dart';
 
 class AppScaffoled extends StatelessWidget {
@@ -14,10 +13,9 @@ class AppScaffoled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage(AppAssets.mainBackgraond))),
+      // decoration: const BoxDecoration(
+      //     // image: DecorationImage(image: AssetImage(AppAssets.mainBackgraond))),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: buildAppBar(),
         bottomNavigationBar: buildBottomNavigationBar(),
         body: body,
@@ -26,11 +24,8 @@ class AppScaffoled extends StatelessWidget {
   }
 
   buildAppBar() => AppBar(
-        title: Text(appBarTitle!, style: AppStyle.appBartextstyle),
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        elevation: 0,
-      );
+      title: Text(appBarTitle!,
+          style: AppStyle.appBartextstyle.copyWith(color: Colors.white)));
 
   buildBottomNavigationBar() => bottomNavigationBar;
 }

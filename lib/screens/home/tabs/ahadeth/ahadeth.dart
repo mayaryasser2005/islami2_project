@@ -1,7 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_mayar/utils/app_colors.dart';
-import 'package:flutter_mayar/utils/app_style.dart';
 
 import '../../../../model/hadeth.dart';
 import '../../../../utils/app_assets.dart';
@@ -34,21 +33,20 @@ class _AhadethState extends State<Ahadeth> {
           child: Image.asset(AppAssets.AhadathTabLogo),
           height: 219,
         ),
-        const Divider(
-          thickness: 2,
-          color: AppColors.primary,
-        ),
+        const Divider(),
         Text(
-          "Ahadeth",
+          "Hadiths".tr(),
           textAlign: TextAlign.center,
-          style: AppStyle.appBartextstyle,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
-        const Divider(
-          thickness: 2,
-          color: AppColors.primary,
-        ),
+        const Divider(),
         Expanded(
-          child: ListView.builder(
+          child: ListView.separated(
+              separatorBuilder: (context, index) => Divider(
+                    endIndent: 40,
+                    indent: 40,
+                    thickness: 1,
+                  ),
               itemCount: allahaddeth.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
@@ -58,7 +56,7 @@ class _AhadethState extends State<Ahadeth> {
                   },
                   child: Text(
                     allahaddeth[index].title,
-                    style: AppStyle.titlestextstyle.copyWith(fontSize: 20),
+                    style: Theme.of(context).textTheme.bodyMedium,
                     textAlign: TextAlign.center,
                   ),
                 );
