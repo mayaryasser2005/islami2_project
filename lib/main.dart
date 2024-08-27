@@ -11,13 +11,16 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  MyProvider appProvider = MyProvider();
+  await appProvider.getThemeLang();
+  WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
-  runApp(
+  return runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => MyProvider(),
+          create: (context) => appProvider,
         )
       ],
       builder: (context, child) {
@@ -25,8 +28,8 @@ void main() async {
         return EasyLocalization(
             supportedLocales: [Locale('en'), Locale('ar')],
             path: 'assets/translations',
-            startLocale: Locale(pro.langCode),
-            fallbackLocale: Locale(pro.langCode),
+            startLocale: Locale("en"),
+            fallbackLocale: Locale("en"),
             child: MyApp());
       },
     ),
@@ -43,7 +46,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
-      locale: context.locale,
+      locale: pro.langCode,
       themeMode: pro.appTheme,
       theme: MyThemeData.ligthTheme,
       darkTheme: MyThemeData.darkTheme,

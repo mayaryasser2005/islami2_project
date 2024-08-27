@@ -21,7 +21,8 @@ class LanguageBottomSheet extends StatelessWidget {
             onTap: () {},
             child: InkWell(
               onTap: () {
-                pro.changeLanguage(context, "ar");
+                pro.changeLanguage(Locale("ar"));
+                pro.getThemeLang();
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,7 +46,8 @@ class LanguageBottomSheet extends StatelessWidget {
             onTap: () {},
             child: InkWell(
               onTap: () {
-                pro.changeLanguage(context, "en");
+                pro.changeLanguage(Locale("en"));
+                pro.getThemeLang();
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

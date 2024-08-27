@@ -18,9 +18,7 @@ class SuraDetails extends StatefulWidget {
 
 class _SuraDetailsState extends State<SuraDetails> {
   late SuraDetailsArgs args;
-
   String fileContent = "";
-
   @override
   Widget build(BuildContext context) {
     var pro = Provider.of<MyProvider>(context);
